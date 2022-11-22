@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audit Setup</title>
+    <link type="text/css" rel="stylesheet" href="CSS/AuditSetup.css">
+    <script src="JavaScript/App1.js"></script>
+    <script src="JavaScript/AuditSetup.js"></script>
+</head>
+<body>
+    <article id="TemplateTwo">
+        <article id="ManageSide">
+            <h1>Add Bin</h1>
+            <section id="S_AddBin">
+                <span>Colour</span>
+                <input type="text" id="I_Colour"/>
+                <span>Location</span>
+                <input type="number" id="I_Location"/>
+                <span>Description</span>
+                <textarea name="" id="I_Description" placeholder="Description"></textarea>
+                <!--<span>Id</span>
+                <input type="text" id="Id"/>-->
+                <p  id="B_AddBin">Add</p>
+            </section>
+            <section id="S_AddPerson">
+                <h3>Add Person</h3>
+                <span>Name</span>
+                <input type="text" id="I_Name"/>
+                <span>Password</span>
+                <input type="text" id="I_Password"/>
+                <select id="I_Role">
+                    <option value="BinJob">Bin Runner</option>
+                    <option value="DataJob">Data Collector</option>
+                    <option value="Contamination">Contamination Checker</option>
+                </select>
+                <p id="B_AddPerson">Add</p>
+            </section>
+
+        </article>
+        <article id="DataSide">
+            <section id="TabHolder">
+                <h1 class="B_Tab" id="B_BinTab">Bin Data</h1>
+                <h1 class="B_Tab" id="B_UserTab">User Data</h1>
+            </section>
+            <section id="BinTab">
+                <table border="1" id="BinTable">
+                    <tr>
+                        <th>Id</th>
+                        <th>Colour</th>
+                        <th>Location</th>
+                    </tr>
+                </table>
+            </section>
+            <section id="UserTab">
+                <table border="1" id="UserTable">
+                    <tr>
+                        <th>Name</th>
+                        <th>Role</th>
+                        <th>Id</th>
+                    </tr>
+                </table>
+            </section>
+        </article>
+
+    </article>
+    
+</body>
+</html>

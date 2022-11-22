@@ -1,0 +1,62 @@
+@import "Defaults.scss";
+
+body {
+    overflow-x: hidden;
+}
+
+
+#TemplateTwo {
+    grid-template-columns: 60% 40%;
+
+}
+
+
+
+#UserTab {
+    display: none;
+}
+
+#TabHolder {
+    text-align: center;
+
+    h1 {
+        display: inline-block;
+    }
+}
+
+
+#ManageSide {
+    section {
+        p {
+            text-align: center;
+            background-color: var(--MainGreen);
+            
+        }
+    }
+}
+
+
+table, tr, td {
+    border: 2px solid var(--MainGreen);
+    text-align: center;
+    width: 100%;
+}
+
+table {
+    background-color: var(--MainGreen);
+}
+
+tr, td {
+    background-color: #FFFFFF;
+    
+}
+
+#ManageSide {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+

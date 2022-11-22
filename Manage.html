@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage</title>
+    <link type="text/css" rel="stylesheet" href="CSS/Manage.css"/>
+    <script  src="JavaScript/App1.js"></script>
+    <script src="JavaScript/Manage.js"></script>
+
+</head>
+<body>
+    <article id="HolderHalf">
+        <article id="Settings">
+            <section id="CurrentData">
+                <p class="BoldedText">Total Bins:</p>
+                <p id="TotalBins">5</p>
+                <p class="BoldedText">Bins here:</p>
+                <p id="AmountOfBins">6</p>
+                <p class="BoldedText">Bins Returned:</p>
+                <p id="AmountOfBinsReturned">6</p>   
+                
+            </section>
+
+            <section id="AuditSettings">
+                <section>
+                    <table border="1">
+                        <tr>
+                            <th>Basic Settings</th>
+                            <th>Blue Bin</th>
+                            <th>Green Bin</th>
+                            <th>Red Bin</th>
+                        </tr>
+                        <tr>
+                            <td>Not Avaliable</td>
+                            <!--<td><input type="text" placeholder="max number of bins"/></td>-->
+                            <td>
+                                <p id="BluePriority">Set Priorty</p>
+                            </td>
+                            <td>
+                                <p id="GreenPriority">Set Priorty</p>
+                            </td>
+                            <td>
+                                <p id="RedPriority">Set Priorty</p>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <table id="UserTable" border="1" bordercolor="#f7f9Aa">
+                        <tr>
+                            <th>User</th>
+                            <th>Id</th>
+                            <th>Role</th>
+                        </tr>
+                    </table>
+                    
+                </section>
+            </section>
+    
+        </article>
+        <article id="DataOutput">
+            <table id="BinsTable" border="1">
+            </table>
+        </article>
+    </article>
+   
+</body>
+</html>

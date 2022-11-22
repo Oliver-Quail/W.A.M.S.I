@@ -1,0 +1,590 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans&display=swap");
+* {
+  font-family: "Source Sans Pro", sans-serif;
+  padding: 0px;
+  margin: 0px;
+}
+
+:root {
+  --MainBlack: #212529;
+  --MainWhite: #FAF8F9;
+  --MainBlue: #abd4c8;
+  --MainGreen: #adc965;
+  --MainRed: #e46144;
+  --MainYellow: #f2bd6e;
+  --MainOrange: #ebc29f;
+  --OffBlack: hsl(210, 11%, 40%);
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.BoldedText {
+  font-weight: bold;
+}
+
+#LogoutButton {
+  background-color: var(--MainRed);
+  text-align: center;
+  color: var(--MainWhite);
+  font-weight: bold;
+  width: 100%;
+  padding: 5px;
+}
+
+.Blue {
+  color: var(--MainBlue);
+}
+
+.Green {
+  color: var(--MainGreen);
+}
+
+.Red {
+  color: var(--MainRed);
+}
+
+.BlueBackground {
+  background-color: var(--MainBlue);
+  color: var(--MainWhite);
+}
+
+.GreenBackground {
+  background-color: var(--MainGreen);
+}
+
+.RedBackground {
+  background-color: var(--MainRed);
+}
+
+.YellowBackground {
+  background-color: var(--MainYellow);
+}
+
+.OrangeBackground {
+  background-color: var(--MainOrange);
+}
+
+#TemplateTwo {
+  display: grid;
+  width: 100%;
+  min-height: 100vh;
+  grid-template-columns: 80% 20%;
+  grid-template-rows: 100%;
+}
+#TemplateTwo article:nth-child(1) {
+  grid-column: 1;
+  grid-row: 1;
+  width: 100%;
+  height: 100%;
+}
+#TemplateTwo article:nth-child(2) {
+  grid-column: 2;
+  grid-row: 1;
+  width: 100%;
+  height: 100%;
+}
+#TemplateTwo .B_Holder {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+#TemplateTwo .B_Holder section {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen and (max-width: 400px) {
+  #TemplateTwo {
+    height: 100vh;
+    grid-template-columns: 100%;
+    grid-template-rows: 80vh 20vh;
+  }
+  #TemplateTwo article:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  #TemplateTwo article:nth-child(2) {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  #TemplateTwo article:nth-child(2) .B_Holder {
+    flex-direction: row;
+    width: 100%;
+  }
+  #TemplateTwo article:nth-child(2) .B_Holder section {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.Input {
+  outline: none;
+  margin: 10px 0px;
+  width: 50%;
+  height: 24px;
+  text-align: center;
+  font-size: 24px;
+  color: var(--MainBlack);
+}
+
+.Input::-moz-placeholder {
+  text-align: center;
+  font-size: 24px;
+}
+
+.Input:-ms-input-placeholder {
+  text-align: center;
+  font-size: 24px;
+}
+
+.Input::placeholder {
+  text-align: center;
+  font-size: 24px;
+}
+
+.Input:focus {
+  background-color: var(--MainGreen);
+  color: var(--MainWhite);
+}
+
+#Alert {
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 90vw;
+  height: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 2;
+  background-color: var(--MainWhite);
+}
+#Alert h3 {
+  background-color: var(--MainGreen);
+  border-radius: 25px;
+  padding: 0px 5px;
+}
+
+#CustomConfirm {
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 90vw;
+  height: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 2;
+  background-color: var(--MainWhite);
+}
+#CustomConfirm #CustomConfirmColour {
+  font-size: 30px;
+  font-weight: bold;
+}
+#CustomConfirm #AlertButtonHolder {
+  display: flex;
+  width: 100%;
+}
+#CustomConfirm #AlertButtonHolder section {
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+:root {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  --OffBlack: rgba(249, 250, 251, 0.5);
+  height: 100%;
+  --MainBlack: hsl(0, 60%, 2%);
+  /*--Green: hsl(42, 100%, 80%);
+  --Green: hsl(195, 83%, 57%);
+  --Green: hsl(4, 82%, 77%)*/
+  color: var(--MainBlack);
+  --Red: #f07167;
+  --Green: #CAFFBF;
+  --Blue: #4EDAFF;
+  --Yellow: #FDFFB6;
+  --Purple: #9d4edd;
+  font-size: 16px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background-color: var(--MainBlack);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background-color: var(--MainWhite);
+  border-radius: 25px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--MainGreen);
+}
+
+#bgPhone {
+  display: none;
+}
+
+body {
+  overflow: hidden;
+}
+
+@media screen and (max-width: 600px) {
+  #bgPhone {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    display: inline;
+    z-index: -1;
+    min-height: 100%;
+    min-width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 0%;
+  }
+  body {
+    overflow: scroll;
+  }
+}
+* {
+  color: var(--MainBlack);
+}
+
+#ParallaxBackground {
+  background-color: hsl(210deg, 17%, 98%);
+  height: 96vh;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  transition: 0.4s ease-in-out;
+  display: grid;
+  grid-template-columns: auto 90% auto;
+  grid-template-rows: 70% 30%;
+}
+#ParallaxBackground * {
+  grid-column: 2;
+}
+#ParallaxBackground #GraphHolder {
+  margin-top: 10%;
+  grid-row: 1;
+  display: grid;
+  width: 100%;
+  grid-template-columns: 30% 30% 30%;
+  -moz-column-gap: 4.5%;
+       column-gap: 4.5%;
+}
+#ParallaxBackground #GraphHolder #Chart1Holder {
+  grid-column: 1;
+  width: 100%;
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#ParallaxBackground #GraphHolder #Chart1Holder #Chart1 {
+  height: 80%;
+  background-color: transparent;
+}
+#ParallaxBackground #GraphHolder #Chart2Holder {
+  grid-column: 2;
+  width: 100%;
+  height: 80%;
+  display: grid;
+  grid-template-columns: auto 40% 40% auto;
+  grid-template-rows: auto auto auto auto auto auto;
+  background-color: rgba(249, 250, 251, 0.1);
+}
+#ParallaxBackground #GraphHolder #Chart2Holder h1 {
+  grid-row: 1;
+  grid-column: 1/5;
+  text-align: center;
+}
+#ParallaxBackground #GraphHolder #Chart2Holder p:nth-child(1) {
+  text-align: center;
+  grid-row: 2;
+  grid-column: 3;
+  font-weight: bold;
+}
+#ParallaxBackground #GraphHolder #Chart2Holder p:nth-child(2) {
+  text-align: center;
+  grid-row: 3;
+  grid-column: 2;
+}
+#ParallaxBackground #GraphHolder #Chart2Holder p:nth-child(3) {
+  text-align: center;
+  grid-row: 3;
+  grid-column: 3;
+  font-weight: bold;
+}
+#ParallaxBackground #GraphHolder #Chart2Holder p:nth-child(4) {
+  text-align: center;
+  grid-row: 4;
+  grid-column: 2;
+}
+#ParallaxBackground #GraphHolder #Chart2Holder p:nth-child(5) {
+  text-align: center;
+  grid-row: 4;
+  grid-column: 3;
+  font-weight: bold;
+}
+#ParallaxBackground #GraphHolder #Chart2Holder p:nth-child(6) {
+  text-align: center;
+  grid-row: 5;
+  grid-column: 2;
+}
+#ParallaxBackground #GraphHolder #Chart2Holder p:nth-child(7) {
+  text-align: center;
+  grid-row: 5;
+  grid-column: 3;
+  font-weight: bold;
+}
+#ParallaxBackground #GraphHolder #Chart2Holder p:nth-child(8) {
+  text-align: center;
+  grid-row: 6;
+  grid-column: 2;
+}
+#ParallaxBackground #GraphHolder #Chart2Holder p:nth-child(9) {
+  text-align: center;
+  grid-row: 6;
+  grid-column: 3;
+  font-weight: bold;
+}
+#ParallaxBackground #GraphHolder #Chart2Holder p:nth-child(10) {
+  text-align: center;
+  grid-row: 7;
+  grid-column: 2;
+}
+#ParallaxBackground #GraphHolder #Chart2Holder p:nth-child(11) {
+  text-align: center;
+  grid-row: 7;
+  grid-column: 3;
+  font-weight: bold;
+}
+#ParallaxBackground #GraphHolder #Chart2Holder p:nth-child(12) {
+  text-align: center;
+  grid-row: 8;
+  grid-column: 2;
+}
+#ParallaxBackground #GraphHolder #Chart2Holder p:nth-child(13) {
+  text-align: center;
+  grid-row: 8;
+  grid-column: 3;
+  font-weight: bold;
+}
+#ParallaxBackground #GraphHolder #Chart2Holder p:nth-child(14) {
+  text-align: center;
+  grid-row: 9;
+  grid-column: 2;
+}
+#ParallaxBackground #GraphHolder #Chart2Holder p:nth-child(2), #ParallaxBackground #GraphHolder #Chart2Holder p:nth-child(3) {
+  font-weight: bold;
+}
+#ParallaxBackground #GraphHolder #Chart2Holder p:nth-child(5) {
+  color: var(--MainBlue);
+}
+#ParallaxBackground #GraphHolder #Chart2Holder p:nth-child(7) {
+  color: var(--MainGreen);
+}
+#ParallaxBackground #GraphHolder #Chart2Holder p:nth-child(9) {
+  color: var(--MainRed);
+}
+#ParallaxBackground #GraphHolder #Chart2Holder p:nth-child(11) {
+  color: var(--MainYellow);
+}
+#ParallaxBackground #GraphHolder #Chart2Holder p:nth-child(13) {
+  color: var(--MainOrange);
+}
+#ParallaxBackground #GraphHolder #Chart3Holder {
+  grid-column: 3;
+  width: 100%;
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#ParallaxBackground #GraphHolder #Chart3Holder #Chart3 {
+  height: 80%;
+  background-color: transparent;
+}
+#ParallaxBackground #KeyStats {
+  margin-top: 5%;
+  grid-row: 2;
+  width: 100%;
+  height: 100%;
+  background-color: var(--OffBlack);
+  /* display: flex;
+   align-items: center;
+   justify-content: space-evenly;
+   flex-wrap: nowrap;*/
+  display: grid;
+  grid-template-columns: 30% 30% 30%;
+  -moz-column-gap: 4.5%;
+       column-gap: 4.5%;
+}
+#ParallaxBackground #KeyStats #Stat1 {
+  grid-column: 1;
+}
+#ParallaxBackground #KeyStats #Stat2 {
+  grid-column: 2;
+}
+#ParallaxBackground #KeyStats #Stat3 {
+  grid-column: 3;
+}
+#ParallaxBackground #KeyStats .Stat {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#ParallaxBackground #KeyStats .Stat p {
+  font-size: 20px;
+  font-weight: bold;
+}
+#ParallaxBackground .RedText {
+  color: var(--MainRed);
+}
+
+@media screen and (max-width: 600px) {
+  canvas {
+    height: 20%;
+  }
+  #ParallaxBackground {
+    background: transparent;
+    grid-template-columns: 100%;
+    grid-template-rows: auto auto;
+    row-gap: 20vh;
+  }
+  #ParallaxBackground * {
+    grid-column: 1;
+  }
+  #ParallaxBackground #GraphHolder {
+    grid-row: 1;
+    display: grid;
+    grid-template-rows: 30% 30% 30%;
+    grid-template-columns: 100%;
+    row-gap: 10vh;
+  }
+  #ParallaxBackground #GraphHolder * {
+    grid-column: 1;
+  }
+  #ParallaxBackground #GraphHolder #Chart1Holder {
+    grid-row: 1;
+    grid-column: 1;
+    width: 100%;
+    height: 100%;
+    background-color: var(--MainWhite);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #ParallaxBackground #GraphHolder #Chart1Holder #Chart1 {
+    height: 80%;
+    background-color: transparent;
+  }
+  #ParallaxBackground #GraphHolder #Chart2Holder {
+    grid-row: 2;
+    grid-column: 1;
+    width: 100%;
+    height: 100%;
+    background-color: var(--MainWhite);
+  }
+  #ParallaxBackground #GraphHolder #Chart3Holder {
+    grid-row: 3;
+    grid-column: 1;
+    width: 100%;
+    height: 100%;
+    background-color: var(--MainWhite);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #ParallaxBackground #GraphHolder #Chart3Holder #Chart3 {
+    height: 80%;
+    background-color: transparent;
+  }
+  #ParallaxBackground #KeyStats {
+    grid-row: 2;
+    width: 100%;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    background-color: var(--OffBlack);
+    /* display: flex;
+     align-items: center;
+     justify-content: space-evenly;
+     flex-wrap: nowrap;*/
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto auto auto;
+    row-gap: 2vh;
+  }
+  #ParallaxBackground #KeyStats .Stat {
+    grid-column: 1;
+    width: 100%;
+  }
+  #ParallaxBackground #KeyStats #Stat1 {
+    grid-row: 1;
+    grid-column: 1;
+  }
+  #ParallaxBackground #KeyStats #Stat2 {
+    grid-row: 2;
+    grid-column: 1;
+  }
+  #ParallaxBackground #KeyStats #Stat3 {
+    grid-row: 3;
+    grid-column: 1;
+  }
+}
+footer {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  height: auto;
+  background-color: var(--MainBlack);
+}
+footer p {
+  color: var(--MainWhite);
+}
+footer a {
+  color: var(--MainWhite);
+}
+footer a:hover {
+  color: var(--MainOrange);
+  transition: 200ms;
+}/*# sourceMappingURL=LiveData2.css.map */

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waste Audit Live</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.3.2/dist/chart.min.js"></script>
+    <script src="JavaScript/Charts.js"></script>
+    <script src="Javascript/chartjs-plugin-style.min.js"></script>
+
+    <link type="text/css" rel="stylesheet" href="CSS/LiveData2.css"/><!--Link to singular css file-->
+    
+
+</head>
+<body>
+    <div id="bgPhone">
+
+    </div>
+    <div id="ParallaxBackground">
+        <article id="GraphHolder" data-aos="fade-down" data-aos-duration="1000">
+            <section id="Chart1Holder">
+                <canvas id="Chart1"></canvas>
+
+            </section>
+            <section id="Chart2Holder">
+                <h1>Mass statictics</h1>
+                <p>Color</p>
+                <p>Mass</p>
+                <p>Blue</p>
+                <p id="O_BlueMass">0kg</p>
+                <p>Green</p>
+                <p id="O_GreenMass">0kg</p>
+                <p>Red</p>
+                <p id="O_RedMass">0kg</p>
+                <p>Yellow</p>
+                <p id="O_YellowMass">0kg</p>
+                <p>Electronic</p>
+                <p id="O_OtherMass">0kg</p>
+            </section>
+            <section id="Chart3Holder">
+                <canvas id="Chart2"></canvas>
+
+            </section>
+        </article>
+
+        <article id="KeyStats">
+
+            <section id="Stat1" class="Stat">
+                <h2>Estimated waste produced by <span class="RedText">contamination:</span></h2>
+                <p><span id="Stat1Data">455</span>kg</p>
+            </section>
+
+            <section id="Stat2" class="Stat">
+                <h2>Total Mass of <span class="RedText">waste:</span></h2>
+                <p><span id="Stat2Data">455</span>kg</p>
+            </section>
+
+            <section id="Stat3" class="Stat">
+                <h2>Total <span class="RedText">red</span> bin waste:</h2>
+                <p><span id="Stat3Data">455</span>kg</p>
+            </section>
+           
+
+        </article>
+
+
+    </div>
+
+    <footer>
+        <p>By<a href="https://ollie-q.github.io/" target="_blank"> Oliver Quail</a></p>
+
+    </footer>
+    
+</body>
+</html>

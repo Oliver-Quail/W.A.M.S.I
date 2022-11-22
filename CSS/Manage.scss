@@ -1,0 +1,30 @@
+@import "Defaults.scss";
+
+
+#HolderHalf {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+
+    #Settings {
+        grid-column: 1;
+        #CurrentData {
+            display: grid;
+            grid-template-columns: auto auto auto auto auto auto;
+        }
+
+        table {
+            width: 100%;
+        }
+    }
+
+
+    #DataOutput {
+        grid-column: 2;
+
+        table {
+            width: 100%;
+        }
+    }
+}
+

@@ -1,0 +1,62 @@
+@import "Defaults.scss";
+
+#Map {
+    width: 60vh;
+    height: 40vh;
+}
+
+body {
+    overflow: hidden;
+}
+
+article {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .Blue {
+        color: var(--MainBlue);
+        
+    }
+
+    
+
+    #Holder {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+
+        section {
+            display: flex;
+            width: 50%;
+            justify-content: center;
+
+            #Id, #Location {
+                font-weight: bold;
+
+            }
+
+            span {
+                font-size: 24px;
+            }
+
+        }
+    }
+
+    #DescriptionText {
+        min-width: 80%;
+        text-align: center;
+    }
+}
+
+#UpdateButton {
+    background-color: var(--MainGreen);
+    color: var(--MainBlack);
+    width: 100%;
+    text-align: center;
+    padding: 24px 0px;
+    font-weight: bold;
+    position: absolute;
+    bottom: 0;
+}
