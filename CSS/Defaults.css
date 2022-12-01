@@ -45,6 +45,14 @@ body {
   color: var(--MainRed);
 }
 
+.Yellow {
+  color: var(--MainYellow);
+}
+
+.Orange {
+  color: var(--MainOrange);
+}
+
 .BlueBackground {
   background-color: var(--MainBlue);
   color: var(--MainWhite);
