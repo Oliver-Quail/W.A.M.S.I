@@ -50,41 +50,13 @@ window.onload = function() {
                 '#f2bd6e',
                 "#ebc29f",  
             ],
-            borderColor: [
-                /*'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',*/
-                "#FFF",
-                "#FFF",
-                "#FFF",
-                "#FFF"
-                
-            ],
             color: [
                 "#181818"
             ],
-            borderWidth: 0
+            
         }]
     },
     options: {
-        
-        scales: {
-            
-           /* yAxes: {
-                ticks: {
-                    color: "white",
-                    family: "'Roboto', sans-serif"
-                }
-            },
-            xAxis: {
-                ticks: {
-                    color: "white",
-                    family: "'Roboto', sans-serif"
-
-                }
-            }*/
-        },
         plugins : {
             title: {
                 display: true,
@@ -112,7 +84,9 @@ window.onload = function() {
             },
             
         }
-    }
+    },
+    plugins: [ChartDataLabels],
+
 });
     //graph 2
     var Chart2 = document.getElementById("Chart2");
@@ -178,7 +152,8 @@ window.onload = function() {
             },
             
         }
-    }
+    },
+    plugins: [ChartDataLabels],
 });
 
     setInterval(UpdateData, 60000)
@@ -306,11 +281,268 @@ window.onload = function() {
         xhttp2.send();
 
     }
+    var Array = {};
+    Array["Blue"] = 25;
+    Array["Green"] = 10;
+    Array["Red"] = 40;
+    var ColoursArray = {"Blue": "#abd4c8", "Green": "#adc965", "Red": "#e46144", "Yellow": "#f2bd6e", "Orange": "#ebc29f", "Waste Due To Contamination": "#23433A", "Contaminated": "#e46144", "Not Contaminated":"#adc965"};
+    GenerateChart("ChartXX1", Array, ColoursArray, "Break down of Waste streams in Blue bin (kg)");
 
 
 
+    function GenerateChart(ChartId, Data, Colours, Title) {
 
+        var Keys = Object.keys(Data);
+        var DataArray = [];
+        var ColoursArray = [];
+        Keys.forEach(element => {
+            DataArray.push(Data[element]);
+            ColoursArray.push(Colours[element]);
+        });
+        var ctx = ChartId;
+        var NewChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: Keys,
+            datasets: [{
+                data: DataArray,
+                backgroundColor: ColoursArray,
+                borderColor: [
+                    "#FFF",
+                    "#FFF",
+                  
+                    
+                ],
+                color: [
+                    "#FFF"
+                ],
+                borderWidth: 0
+            }]
+        },
+        options: {
+            
+            scales: {
+            
+                
+            },
+            plugins : {
+                title: {
+                    display: true,
+                    align: "center",
+                    color: "#181818",
+                    text: Title,
+                    font : {
+                        size: 18
+                    }
+                  
+                },
+                legend: {
+                    display: true,
+                    position: "bottom",
+    
+                    labels: {
+    
+                        
+                        
+    
+                    }
+                },
+                
+            }
+        },
+        plugins: [ChartDataLabels],
+    });
+
+}
+
+var GetRawData = new XMLHttpRequest();
+GetRawData.open("POST", "P_API.php?Mode=GetDataRaw", true);
+GetRawData.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+GetRawData.onload = function() {
+    console.log(this.responseText);
+    switch(this.responseText) {
+        case "-1":
+            alert("You don't have approriate access to this page");
+            return true;
+        break;
+
+        case "-8":
+            alert("Invalid data submitted");
+        break;
+
+        case "-7":
+            alert("No jobs avaliable at this time");
+            return true;
+        break;
+        case "-28":
+            alert("Invalid data");
+        break;
+        case "":
+            //alert("no jobs avaliable");
+            return true;
+        break;
+    }
+    var Data = JSON.parse(this.responseText);
+    var BinColours =[];
+
+    for(var element in Data) {
+        BinColours.push(element);    
+
+    }
+    var Counter = 0;
+    while(Counter < BinColours.length) {
+        var ContaminationGraphHolder = document.createElement("section");
+        var WasteGraphHolder = document.createElement("section");
+        var ContaminationGraph = document.createElement("canvas");
+        var WasteGraph = document.createElement("canvas");
+
+
+        ContaminationGraph.id = "Chart" + BinColours[Counter] + "Con";
+        ContaminationGraphHolder.appendChild(ContaminationGraph);
+
+        WasteGraph.id = "Chart" + BinColours[Counter] + "Mass";
+        WasteGraphHolder.appendChild(WasteGraph);
+
+        var BinWasteData = {};
+
+        var StatFocus = document.createElement("article");
+        StatFocus.classList.add("StatFocus");
+        var Title = document.createElement("h1");
+        Title.classList.add("Title");
+        Title.textContent = "Break down of Waste From " + BinColours[Counter] + " Bin";
+        Title.classList.add(BinColours[Counter]+"Background");
+        StatFocus.appendChild(Title);
+        var DataDivide3 = GenerateSimpleElement("section", "DataDivide3");
+        var DataColum = document.createElement("section");
+        var SubTitles = ["Break Down of Waste From " + BinColours[Counter] + " Bin", "Number of Contaminated vs Non Contaminated in " + BinColours[Counter] + " Bins (kg)", "Amount of " + BinColours[Counter] + " Waste in Other Colour bins", "Sources of " + BinColours[Counter] + " Waste Going To Landfill"];
+        var TitlesCounter = 0;
+        var ContaminationDataLocal = {"Contaminated":0, "Not Contaminated":0};
+        var MassOfColourNotInBin = 0;
+        while(TitlesCounter < SubTitles.length) {
+            var LocalTitle = document.createElement("h1");
+            LocalTitle.textContent = SubTitles[TitlesCounter];
+            LocalTitle.classList.add(BinColours[Counter]+"BorderTop");
+            DataColum.appendChild(LocalTitle);
+            switch(TitlesCounter) {
+                case 0:
+                    var TempArray = {};
+                    var MassKeys = Object.keys(Data[BinColours[Counter]]);
+                    MassKeys.forEach(element => {
+                        console.log(element);
+                        if(element != "Con" && element != "Not") {
+                            TempArray[element] = Data[BinColours[Counter]][element];
+                        }
+                        else if(element == "Con"){
+                            ContaminationDataLocal["Contaminated"] = Data[BinColours[Counter]]["Con"];
+                        }
+                        else {
+                            ContaminationDataLocal["Not Contaminated"] = Data[BinColours[Counter]]["Not"];
+                        }
+                    });
+                    DataColum.appendChild(GenerateRow(TempArray));
+                break;
+                case 1:
+                    DataColum.appendChild(GenerateRow(ContaminationDataLocal, ""));
+                break;
+                case 2:
+                    var TempArray = {};
+                    /*for(var ColourKey in BinColours) {
+                        var CurrentColour = BinColours[ColourKey];
+                        console.log(CurrentColour);
+                        if(Object.keys(Data[CurrentColour]).includes(CurrentColour)) {
+                            TempArray[CurrentColour] = Data[CurrentColour][CurrentColour];
+                            console.log(TempArray[CurrentColour] = Data[CurrentColour][CurrentColour]);
+                            MassOfColourNotInBin += TempArray[CurrentColour];
+                        }
+                    }*/
+                    for(var Colour in Data) {
+                        //! FIX ADD AN OPTION FOR NOT EXISTSING
+                        if(Colour != BinColours[Counter]) {
+                            BinWasteData[Colour] = Data[Colour][BinColours[Counter]];
+                            TempArray[Colour] = Data[Colour][BinColours[Counter]];
+                            MassOfColourNotInBin += TempArray[Colour];
+                        }
+                    }
+                    /*Data.forEach(element => {
+                        if(element == BinColours[Counter]) {
+
+                        }
+                    });*/
+                    console.log(MassOfColourNotInBin);
+                    console.table(TempArray);
+                    DataColum.appendChild(GenerateRow(TempArray));
+                break;
+                case 3:
+                    var TempArray = {};
+                    var ContaminatedMass = Data[BinColours[Counter]][BinColours[Counter]] *(Data[BinColours[Counter]]["Con"]/(Data[BinColours[Counter]]["Con"] + Data[BinColours[Counter]]["Not"]))
+                    BinWasteData["Waste Due To Contamination"] = Math.round(ContaminatedMass * 100)/100;
+                    TempArray["Amount Going to landfill due to being put in wrong bin"] = Math.round(MassOfColourNotInBin*100)/100;
+                    TempArray["Due to contamination"] = BinWasteData["Waste Due To Contamination"];
+                    TempArray["Total"] = TempArray["Due to contamination"] + TempArray["Amount Going to landfill due to being put in wrong bin"];
+                    DataColum.appendChild(GenerateRow(TempArray));
+                    break;
+            }
+            TitlesCounter++;
+        }
+        DataDivide3.appendChild(DataColum);
+        DataDivide3.appendChild(ContaminationGraphHolder);
+        DataDivide3.appendChild(WasteGraphHolder);
+        StatFocus.appendChild(DataDivide3);
+        document.getElementsByTagName("body")[0].appendChild(StatFocus);
+        BinWasteData["Going to where it should"] = Math.round((Data[BinColours[Counter]][BinColours[Counter]] - BinWasteData["Waste Due To Contamination"])*100)/100;
+
+        var WasteColours = {"Waste Due To Contamination": ColoursArray["Waste Due To Contamination"], "Going to where it should": ColoursArray[BinColours[Counter]]};
+        var Keys = Object.keys(Data);
+        Keys.forEach(element => {
+            if(element != BinColours[Counter]) {
+                WasteColours[element] = ColoursArray[element]; 
+            }
+        });
+        console.table(WasteColours);
+
+        GenerateChart(WasteGraph, BinWasteData, WasteColours, "Breakdown of Which Bin" + BinColours[Counter] + " Waste is in (kg)");
+        GenerateChart(ContaminationGraph, ContaminationDataLocal, {"Contaminated": ColoursArray["Contaminated"], "Not Contaminated":ColoursArray["Not Contaminated"]}, "Number of Contaminated vs Non-Contaminated "+ BinColours[Counter] +" Bins");
+        Counter++;
+    }
+
+
+
+}
+
+GetRawData.send();
+
+function GenerateSimpleElement(ElementType, Data, Mode = "Class") {
+    var Element = document.createElement(ElementType);
+    if(Mode == "Text") {
+        Element.textContent = Data;
+    }
+    else {
+        Element.classList.add(Data);
+    }
+    return Element;
+}
+
+function GenerateRow(Data, Type="kg") {
+        var Row = GenerateSimpleElement("div", "Row");
+        console.table(Data);
+        var Titles = Object.keys(Data);
+        Titles.forEach(element => {
+            console.log(Data[element]);
+            var MassOfColour = Data[element].toFixed(2);
+            console.log(element);
+            var RowData = GenerateSimpleElement("section", "RowData");
+            RowData.appendChild(GenerateSimpleElement("h3", element, "Text"));
+            RowData.appendChild(GenerateSimpleElement("span", MassOfColour + Type, "Text"));
+            Row.appendChild(RowData);
+        });
+        //Row.appendChild(RowData);
+        return Row;
+}
+
+
+}
+
+    
 
 
 //end code
-}

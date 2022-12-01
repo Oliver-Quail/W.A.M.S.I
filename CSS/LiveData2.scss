@@ -64,10 +64,6 @@
     display: none;
 }
 
-body {
-    overflow: hidden;
-}
-
 
   @media screen and (max-width: 600px) {
     #bgPhone {
@@ -269,17 +265,49 @@ body {
         }
     }
 
-
     .RedText {
         color: var(--MainRed);
     }
+}
 
+.StatFocus {
+    margin-top: 70px;
+    height: 100vh;
 
+    .Title {
+        width: 100%;
+        padding-left: 20px;
+        font-size: 24px;
+    }
+    
 
+    .DataDivide3 {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
 
-   
+        h1 {
+            font-size: 20px;
+            margin-top: 20px;
 
+        }
 
+        h3 {
+            font-size: 18px;
+        }
+
+        section {
+            margin-top: 10px;
+            width: 33%;
+            text-align: center;
+        }
+
+        .Row {
+            display: flex;
+            gap: 5px;
+        }
+
+    }
 }
 
 
@@ -313,7 +341,7 @@ body {
             grid-column: 1;
         }
 
-        #Chart1Holder {
+        #Ch1Holder {
             grid-row: 1;
             grid-column: 1;
             width: 100%;

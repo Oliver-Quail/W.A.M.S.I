@@ -326,16 +326,30 @@
             return mysqli_stmt_get_result($Con);
         }
 
+        protected function M_CreateAudit($AuditName, $AdminId, $AuditDate, $MapLocation) {
+            $Con = $this->ReadyQuery("INSERT INTO t_audits (auditname, adminid, auditdate, maplocation) VALUES (?, ?, ?, ?)");
+            mysqli_stmt_bind_param($Con, "siss", $AuditName, $AdminId, $AuditDate, $MapLocation);
+            mysqli_stmt_execute($Con);
+        }
+
+        protected function M_GetMassDataRaw() {
+            $Con = $this->ReadyQuery("SELECT colour, mass, FromBin FROM t_data ORDER BY FromBin ASC");
+            mysqli_stmt_execute($Con);
+            return mysqli_stmt_get_result($Con);
+        }
+
+        protected function M_GetContaminationDataRaw() {
+            $Con = $this->ReadyQuery("SELECT colour, contaminated FROM t_auditdata");
+            mysqli_stmt_execute($Con);
+            return mysqli_stmt_get_result($Con);
+        }
+
+        
 
         //kill the database connection on class closing
         function __destruct()
         {
             mysqli_close($this->Connection);
         }
-
-
     }
-
-
-
 ?>

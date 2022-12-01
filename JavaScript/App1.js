@@ -79,7 +79,7 @@ window.onload = function() {
 
 function QueryServer(Mode, Data, CallBackFunction = null, FailureFunction = null) {
     var xhttp =  new XMLHttpRequest();
-    xhttp.open("POST", "API.php?Mode=" + Mode, true);
+    xhttp.open("POST", "API.php?Mode=" + Mode, false);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     console.log(Data);
     xhttp.onload = function() {

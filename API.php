@@ -33,14 +33,8 @@
             echo "failed";
             //http_response_code(-1);
             exit();
-            
-
-
         }
-
-
         if(isset($_GET["Mode"])) {
-
             //Prevent errors from occuring
             try {
                 require_once("loader.php");
@@ -151,12 +145,12 @@
                 case "GetUsers":
                     $View = new View();
                     echo $View->V_GetUsers();
-                break; 
-
-                
-
-
-
+                break;
+                //New functions 
+                case "CreateAudit":
+                    $Controller = new Controller();
+                    $Controller->C_CreateAudit($_POST["AuditName"], $_SESSION["Id"], $_POST["Date"], $_POST["MapLocation"]);
+                break;
             }
 
             /* 

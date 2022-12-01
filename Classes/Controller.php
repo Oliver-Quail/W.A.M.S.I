@@ -78,10 +78,13 @@
             $this->M_SetPriority($F_Colour);
        }
 
-
-       
-
-   
+       function C_CreateAudit($AuditName, $AdminId, $AuditDate, $MapLocation) {
+            $F_AuditName = $this->FilterString($AuditName);
+            $F_AdminId = $this->FilterInt($AdminId);
+            $F_AuditDate = $this->FilterString($AuditDate);
+            $F_MapLocation = $this->FilterString($MapLocation);
+            $this->M_CreateAudit($F_AuditName, $F_AdminId, $F_AuditDate, $F_MapLocation);
+       }
     }
 
 
