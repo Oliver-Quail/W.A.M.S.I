@@ -2,10 +2,10 @@
     class DBConnect {
         protected function connect() {
 
-            @Define("DBUSER", "oliver_db");
-            @Define("DBPASS", "oliver_pass");
+            @Define("DBUSER", "id19961452_oliver");
+            @Define("DBPASS", "~O{<<G)=?~>v6~!F");
             @Define("DBHOST", "localhost");
-            @Define("DBNAME", "oliver_db");
+            @Define("DBNAME", "id19961452_wasteaudit2");
     
             try {
                 
