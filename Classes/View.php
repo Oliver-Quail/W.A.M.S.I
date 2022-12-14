@@ -142,7 +142,7 @@
             $OutputArray = array();
             $Keys = array();
             while($Row = mysqli_fetch_assoc($MassData)) {   
-                $F_ColourFrom = $this->FilterString($Row["FromBin"]);
+                $F_ColourFrom = $this->FilterString($Row["frombin"]);
                 $F_WasteColour = $this->FilterString($Row["colour"]);
                 $F_Mass = $this->FilterDouble($Row["mass"]);
                 if(!in_array($F_ColourFrom, $Keys)) {
@@ -168,6 +168,10 @@
                 }
             }
             return json_encode($OutputArray);
+        }
+
+        function V_GetColours() {
+            return $this->ConvertToJSON($this->M_GetColours());
         }
 
     }

@@ -9,7 +9,7 @@
 
      $View = new View();
 
-     var_dump($View->V_GetMassDataRaw());
+     var_dump($View->V_GetColours());
 
 
 ?>

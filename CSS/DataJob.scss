@@ -43,6 +43,17 @@ body {
     }
 }
 
+#ColourOverlay {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+
+    #ColourSquare {
+        width: 10px;
+        height: 10px;
+    }
+}
+
 
 
 

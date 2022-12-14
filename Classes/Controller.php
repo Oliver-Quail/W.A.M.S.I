@@ -67,10 +67,11 @@
             }
        }
 
-       function C_AddMass($Mass, $Colour) {
+       function C_AddMass($Mass, $Colour, $FromBin) {
             $F_Colour = $this->FilterString($Colour);
             $F_Mass = $this->FilterDouble($Mass);
-            $this->M_AddMass($F_Mass, $F_Colour);
+            $F_FromBin = $this->FilterString($FromBin);
+            $this->M_AddMass($F_Mass, $F_Colour, $F_FromBin);
        }
 
        function C_SetPriority($Colour) {

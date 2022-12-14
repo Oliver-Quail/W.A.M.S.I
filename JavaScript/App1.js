@@ -49,7 +49,7 @@ window.onload = function() {
 
  //Data array
  function ValidateData(Mode, Data, CallBackFunction = null, FailureFunction = null) {
-    var AvaliableModes =  ["CreateBin", "CreateUser", "SetPriority", "CheckJob", "UpdateContamination", "Login", "UpdateBinStatus", "AddMass", "GetUsers", "GetBinData", "Ping"];
+    var AvaliableModes =  ["CreateBin", "CreateUser", "SetPriority", "CheckJob", "UpdateContamination", "Login", "UpdateBinStatus", "AddMass", "GetUsers", "GetBinData", "Ping", "GetBinColours"];
     if(AvaliableModes.includes(Mode)) {
         var DataString = null;
         var Counter = 0;
@@ -125,7 +125,9 @@ function QueryServer(Mode, Data, CallBackFunction = null, FailureFunction = null
         if(this.responseText.includes("redirect:"))  {
             var Location = this.responseText.split(":");
             //! add check for mode so no API call
-            window.location = Location[1];
+            while(true) {
+                window.location = Location[1];
+            }
         }
         else {
             //If visual output is required call function on relevant script

@@ -378,6 +378,17 @@ body {
   font-weight: bold;
 }
 
+#ColourOverlay {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+#ColourOverlay #ColourSquare {
+  width: 10px;
+  height: 10px;
+}
+
 @media only screen and (max-width: 400px) {
   #Data {
     height: 100%;

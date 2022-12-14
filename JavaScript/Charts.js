@@ -507,7 +507,7 @@ GetRawData.onload = function() {
         GenerateChart(ContaminationGraph, ContaminationDataLocal, {"Contaminated": ColoursArray["Contaminated"], "Not Contaminated":ColoursArray["Not Contaminated"]}, "Number of Contaminated vs Non-Contaminated "+ BinColours[Counter] +" Bins");
         Counter++;
     }
-    O_Stat1Data.textContent = AmountOfContaminatedMass;
+    O_Stat1Data.textContent = Math.round(AmountOfContaminatedMass*100)/100;
     O_Stat3Data.textContent = (TotalRedMass + AmountOfContaminatedMass).toFixed(2);
 
     
@@ -534,7 +534,7 @@ function GenerateRow(Data, Type="kg") {
         var Titles = Object.keys(Data);
         Titles.forEach(element => {
             console.log(Data[element]);
-            var MassOfColour = Data[element].toFixed(2);
+            var MassOfColour = Math.round(Data[element] *100)/100;
             console.log(element);
             var RowData = GenerateSimpleElement("section", "RowData");
             var MassTitle = document.createElement("h3");

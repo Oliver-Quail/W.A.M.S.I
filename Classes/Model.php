@@ -289,6 +289,9 @@
                         case "location":
                             $ArrayToAppend[$Keys[$Counter]]=$this->FilterInt($Row["location"]);
                         break;
+                        case "frombin":
+                            $ArrayToAppend[$Keys[$Counter]]=$this->FilterString($Row["frombin"]);
+                        break;
                     }
                     $Counter++;
                 }
@@ -313,15 +316,15 @@
             return $DoubleToFilter;
         }
 
-        protected function M_AddMass($Mass, $Colour) {
-            $Con = $this->ReadyQuery("INSERT INTO t_data (mass, colour) VALUES (?, ?)");
-            mysqli_stmt_bind_param($Con, "ds", $Mass, $Colour);
+        protected function M_AddMass($Mass, $Colour, $FromBin) {
+            $Con = $this->ReadyQuery("INSERT INTO t_data (mass, colour, frombin) VALUES (?, ?, ?)");
+            mysqli_stmt_bind_param($Con, "dss", $Mass, $Colour, $FromBin);
             mysqli_stmt_execute($Con);
         }
 
 
-        protected function M_GetPriorities() {
-            $Con = $this->ReadyQuery("SELECT DISTINCT colour, priority FROM t_auditdata");
+        protected function M_GetColours() {
+            $Con = $this->ReadyQuery("SELECT DISTINCT colour FROM t_auditdata");
             mysqli_stmt_execute($Con);
             return mysqli_stmt_get_result($Con);
         }
@@ -333,7 +336,7 @@
         }
 
         protected function M_GetMassDataRaw() {
-            $Con = $this->ReadyQuery("SELECT colour, mass, FromBin FROM t_data ORDER BY FromBin ASC");
+            $Con = $this->ReadyQuery("SELECT colour, mass, frombin FROM t_data ORDER BY frombin ASC");
             mysqli_stmt_execute($Con);
             return mysqli_stmt_get_result($Con);
         }
