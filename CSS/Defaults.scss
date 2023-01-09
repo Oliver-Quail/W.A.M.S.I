@@ -49,6 +49,14 @@ body {
     color: var(--MainRed);
 }
 
+.Yellow {
+    color: var(--MainYellow);
+}
+
+.Orange {
+    color: var(--MainOrange);
+}
+
 .BlueBackground {
     background-color: var(--MainBlue);
     color: var(--MainWhite);
@@ -70,6 +78,26 @@ body {
     background-color: var(--MainOrange);
 }
 
+
+.BlueBorderTop {
+    border-top: 3px solid var(--MainBlue);
+}
+
+.GreenBorderTop {
+    border-top: 3px solid var(--MainGreen);
+}
+
+.RedBorderTop {
+    border-top: 3px solid var(--MainRed);
+}
+
+.YellowBorderTop {
+    border-top: 3px solid var(--YellowBlue);
+}
+
+.OrangeBorderTop {
+    border-top: 3px solid var(--MainOrange);
+}
 
 
 

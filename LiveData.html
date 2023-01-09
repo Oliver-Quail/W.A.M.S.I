@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Waste Audit Live</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.3.2/dist/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
     <script src="JavaScript/Charts.js"></script>
-    <script src="Javascript/chartjs-plugin-style.min.js"></script>
+    <!-- <script src="Javascript/chartjs-plugin-style.min.js"></script> -->
 
     <link type="text/css" rel="stylesheet" href="CSS/LiveData2.css"/><!--Link to singular css file-->
     
@@ -47,7 +48,7 @@
         <article id="KeyStats">
 
             <section id="Stat1" class="Stat">
-                <h2>Estimated waste produced by <span class="RedText">contamination:</span></h2>
+                <h2>Estimated waste produced by <span class="RedText">contamination:</span> or being put in wrong bin</h2>
                 <p><span id="Stat1Data">455</span>kg</p>
             </section>
 
@@ -57,7 +58,7 @@
             </section>
 
             <section id="Stat3" class="Stat">
-                <h2>Total <span class="RedText">red</span> bin waste:</h2>
+                <h2>Total Amount of Waste Going to <span class="RedText">Landfill (inc Contamination)</span> </h2>
                 <p><span id="Stat3Data">455</span>kg</p>
             </section>
            
@@ -67,10 +68,87 @@
 
     </div>
 
-    <footer>
+    <!--<article class="StatFocus">
+        <h1 class="Title">Blue Bin Waste Data</h1>
+        <section class="DataDivide3">
+            <section>
+                <h1>Break down of waste from blue bin</h1>
+                    <section class="Row">
+                        <div class="RowData">
+                            <h3>Blue</h3>
+                            <span>43kg</span>
+                        </div> 
+                        <div class="RowData">
+                            <h3>Red</h3>
+                            <span>43kg</span>
+                        </div>
+                        <div class="RowData">
+                            <h3>Green</h3>
+                            <span>43kg</span>
+                        </div>
+                        <div class="RowData">
+                            <h3>Total</h3>
+                            <span>129kg</span>
+                        </div>
+                    </section>
+                    <h1>Number of Contaminated vs Non Contaminated Blue Bins</h1>
+                    <section class="Row">
+                        <div class="RowData">
+                            <h3>Contaminated</h3>
+                            <span>7</span>
+                        </div>
+                        <div class="RowData">
+                            <h3>Non-Contaminated</h3>
+                            <span>4</span>
+                        </div>
+                    </section>
+                    <h1>Amount of Blue waste in other Colour bins</h1>
+                    <section class="Row">
+                        <div class="RowData">
+                            <h3>Red</h3>
+                            <span>43kg</span>
+                        </div>
+                        <div class="RowData">
+                            <h3>Green</h3>
+                            <span>43kg</span>
+                        </div>
+                        <div class="RowData">
+                            <h3>Total</h3>
+                            <span>86kg</span>
+                        </div>
+                    </section>
+                    <h1>Total Blue waste going to landfill</h1>
+                    <section class="Row">
+                        <div class="RowData">
+                            <h3>Amount going to wrong bin</h3>
+                            <span>43kg</span>
+                        </div>
+                        <div class="RowData">
+                            <h3>Due to Contamination</h3>
+                            <span>43kg</span>
+                        </div>
+                        <div class="RowData">
+                            <h3>Total</h3>
+                            <span>86kg</span>
+                        </div>
+                    </section>
+                </section>
+            <section>
+                <canvas id="ChartXX1"></canvas>
+
+            </section>
+            <section>
+                <canvas id="ChartXX"></canvas>
+
+            </section>
+        </section>
+
+    </article>-->
+
+    <!--<footer>
         <p>By<a href="https://ollie-q.github.io/" target="_blank"> Oliver Quail</a></p>
 
-    </footer>
+    </footer>-->
     
 </body>
 </html>

@@ -67,10 +67,11 @@
             }
        }
 
-       function C_AddMass($Mass, $Colour) {
+       function C_AddMass($Mass, $Colour, $FromBin) {
             $F_Colour = $this->FilterString($Colour);
             $F_Mass = $this->FilterDouble($Mass);
-            $this->M_AddMass($F_Mass, $F_Colour);
+            $F_FromBin = $this->FilterString($FromBin);
+            $this->M_AddMass($F_Mass, $F_Colour, $F_FromBin);
        }
 
        function C_SetPriority($Colour) {
@@ -78,10 +79,13 @@
             $this->M_SetPriority($F_Colour);
        }
 
-
-       
-
-   
+       function C_CreateAudit($AuditName, $AdminId, $AuditDate, $MapLocation) {
+            $F_AuditName = $this->FilterString($AuditName);
+            $F_AdminId = $this->FilterInt($AdminId);
+            $F_AuditDate = $this->FilterString($AuditDate);
+            $F_MapLocation = $this->FilterString($MapLocation);
+            $this->M_CreateAudit($F_AuditName, $F_AdminId, $F_AuditDate, $F_MapLocation);
+       }
     }
 
 

@@ -136,6 +136,44 @@
             return $this->ConvertToJSON($this->M_GetUsers());
         }
 
+        function V_GetMassDataRaw() {
+            $MassData = $this->M_GetMassDataRaw();
+            $ContaminationData = $this->M_GetContaminationDataRaw();
+            $OutputArray = array();
+            $Keys = array();
+            while($Row = mysqli_fetch_assoc($MassData)) {   
+                $F_ColourFrom = $this->FilterString($Row["frombin"]);
+                $F_WasteColour = $this->FilterString($Row["colour"]);
+                $F_Mass = $this->FilterDouble($Row["mass"]);
+                if(!in_array($F_ColourFrom, $Keys)) {
+                    $OutputArray[$F_ColourFrom] = array();
+                    $OutputArray[$F_ColourFrom]["Con"] = 0;
+                    $OutputArray[$F_ColourFrom]["Not"] = 0;
+                    array_push($Keys, $F_ColourFrom);
+                }
+                if(!array_key_exists($F_WasteColour, $OutputArray[$F_ColourFrom])) {
+                    $OutputArray[$F_ColourFrom][$F_WasteColour] = 0;
+                }
+                $OutputArray[$F_ColourFrom][$F_WasteColour] += $F_Mass;
+                $OutputArray[$F_ColourFrom][$F_WasteColour] = round($OutputArray[$F_ColourFrom][$F_WasteColour], 2);
+            }
+            while($Row = mysqli_fetch_assoc($ContaminationData)) {
+                $F_Colour = $this->FilterString($Row["colour"]);
+                $F_Contamination = $this->FilterInt($Row["contaminated"]);
+                if($F_Contamination == 0) {
+                    $OutputArray[$F_Colour]["Not"] += 1;
+                }
+                else if($F_Contamination == 1) {
+                    $OutputArray[$F_Colour]["Con"] += 1;
+                }
+            }
+            return json_encode($OutputArray);
+        }
+
+        function V_GetColours() {
+            return $this->ConvertToJSON($this->M_GetColours());
+        }
+
     }
 
 ?>

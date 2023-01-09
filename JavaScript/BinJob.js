@@ -41,7 +41,7 @@ function LoadEvent() {
                 break;
                 case "0":
                     //! check
-                    alert("non ady");
+                    alert("no idea");
                 break;
                 case "-28":
                     alert("Invalid data");

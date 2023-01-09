@@ -49,7 +49,7 @@ window.onload = function() {
 
  //Data array
  function ValidateData(Mode, Data, CallBackFunction = null, FailureFunction = null) {
-    var AvaliableModes =  ["CreateBin", "CreateUser", "SetPriority", "CheckJob", "UpdateContamination", "Login", "UpdateBinStatus", "AddMass", "GetUsers", "GetBinData", "Ping"];
+    var AvaliableModes =  ["CreateBin", "CreateUser", "SetPriority", "CheckJob", "UpdateContamination", "Login", "UpdateBinStatus", "AddMass", "GetUsers", "GetBinData", "Ping", "GetBinColours"];
     if(AvaliableModes.includes(Mode)) {
         var DataString = null;
         var Counter = 0;
@@ -79,7 +79,7 @@ window.onload = function() {
 
 function QueryServer(Mode, Data, CallBackFunction = null, FailureFunction = null) {
     var xhttp =  new XMLHttpRequest();
-    xhttp.open("POST", "API.php?Mode=" + Mode, true);
+    xhttp.open("POST", "API.php?Mode=" + Mode, false);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     console.log(Data);
     xhttp.onload = function() {

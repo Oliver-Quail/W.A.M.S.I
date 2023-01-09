@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap");
 * {
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   padding: 0px;
   margin: 0px;
 }
@@ -45,6 +45,14 @@ body {
   color: var(--MainRed);
 }
 
+.Yellow {
+  color: var(--MainYellow);
+}
+
+.Orange {
+  color: var(--MainOrange);
+}
+
 .BlueBackground {
   background-color: var(--MainBlue);
   color: var(--MainWhite);
@@ -66,64 +74,128 @@ body {
   background-color: var(--MainOrange);
 }
 
+.BlueBorderTop {
+  border-top: 3px solid var(--MainBlue);
+}
+
+.GreenBorderTop {
+  border-top: 3px solid var(--MainGreen);
+}
+
+.RedBorderTop {
+  border-top: 3px solid var(--MainRed);
+}
+
+.YellowBorderTop {
+  border-top: 3px solid var(--YellowBlue);
+}
+
+.OrangeBorderTop {
+  border-top: 3px solid var(--MainOrange);
+}
+
 #TemplateTwo {
+  display: -ms-grid;
   display: grid;
   width: 100%;
   min-height: 100vh;
-  grid-template-columns: 80% 20%;
-  grid-template-rows: 100%;
+  -ms-grid-columns: 80% 20%;
+      grid-template-columns: 80% 20%;
+  -ms-grid-rows: 100%;
+      grid-template-rows: 100%;
 }
+
 #TemplateTwo article:nth-child(1) {
+  -ms-grid-column: 1;
   grid-column: 1;
+  -ms-grid-row: 1;
   grid-row: 1;
   width: 100%;
   height: 100%;
 }
+
 #TemplateTwo article:nth-child(2) {
+  -ms-grid-column: 2;
   grid-column: 2;
+  -ms-grid-row: 1;
   grid-row: 1;
   width: 100%;
   height: 100%;
 }
+
 #TemplateTwo .B_Holder {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   height: 100%;
 }
+
 #TemplateTwo .B_Holder section {
   height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 @media only screen and (max-width: 400px) {
   #TemplateTwo {
     height: 100vh;
-    grid-template-columns: 100%;
-    grid-template-rows: 80vh 20vh;
+    -ms-grid-columns: 100%;
+        grid-template-columns: 100%;
+    -ms-grid-rows: 80vh 20vh;
+        grid-template-rows: 80vh 20vh;
   }
   #TemplateTwo article:nth-child(1) {
+    -ms-grid-column: 1;
     grid-column: 1;
+    -ms-grid-row: 1;
     grid-row: 1;
   }
   #TemplateTwo article:nth-child(2) {
+    -ms-grid-column: 1;
     grid-column: 1;
+    -ms-grid-row: 2;
     grid-row: 2;
   }
   #TemplateTwo article:nth-child(2) .B_Holder {
-    flex-direction: row;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
     width: 100%;
   }
   #TemplateTwo article:nth-child(2) .B_Holder section {
     height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
 }
+
 .Input {
   outline: none;
   margin: 10px 0px;
@@ -134,12 +206,17 @@ body {
   color: var(--MainBlack);
 }
 
-.Input::-moz-placeholder {
+.Input::-webkit-input-placeholder {
   text-align: center;
   font-size: 24px;
 }
 
 .Input:-ms-input-placeholder {
+  text-align: center;
+  font-size: 24px;
+}
+
+.Input::-ms-input-placeholder {
   text-align: center;
   font-size: 24px;
 }
@@ -163,13 +240,23 @@ body {
   margin: auto;
   width: 90vw;
   height: 20vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   z-index: 2;
   background-color: var(--MainWhite);
 }
+
 #Alert h3 {
   background-color: var(--MainGreen);
   border-radius: 25px;
@@ -185,37 +272,67 @@ body {
   margin: auto;
   width: 90vw;
   height: 40vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   z-index: 2;
   background-color: var(--MainWhite);
 }
+
 #CustomConfirm #CustomConfirmColour {
   font-size: 30px;
   font-weight: bold;
 }
+
 #CustomConfirm #AlertButtonHolder {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   width: 100%;
 }
+
 #CustomConfirm #AlertButtonHolder section {
   width: 100%;
   height: 10vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 section {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   width: 100%;
   height: 100vh;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
+
 section .LoginInput {
   outline: none;
   margin: 10px 0px;
@@ -225,26 +342,37 @@ section .LoginInput {
   font-size: 24px;
   color: var(--MainBlack);
 }
-section .LoginInput::-moz-placeholder {
+
+section .LoginInput::-webkit-input-placeholder {
   text-align: center;
   font-size: 24px;
 }
+
 section .LoginInput:-ms-input-placeholder {
   text-align: center;
   font-size: 24px;
 }
+
+section .LoginInput::-ms-input-placeholder {
+  text-align: center;
+  font-size: 24px;
+}
+
 section .LoginInput::placeholder {
   text-align: center;
   font-size: 24px;
 }
+
 section .LoginInput:focus {
   background-color: var(--MainGreen);
   color: var(--MainWhite);
 }
+
 section #LoginButton {
   background-color: var(--MainGreen);
   width: 50%;
   text-align: center;
   border-radius: 25px;
   color: var(--MainWhite);
-}/*# sourceMappingURL=index.css.map */
+}
+/*# sourceMappingURL=index.css.map */

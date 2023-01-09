@@ -13,7 +13,10 @@ function LoadEvent() {
     var B_Update = document.getElementById("B_Update");
     var I_Mass = document.getElementById("I_Mass");
     var I_BucketMass = document.getElementById("I_BucketMass");
+    var I_FromBin = document.getElementById("BinColour");
     var I_Colour = "";
+
+    ValidateData("GetBinColours", [], DisplayAvaliableBinColours);
 
     //Colour settings
     B_Blue.addEventListener("click", function(){
@@ -48,7 +51,7 @@ function LoadEvent() {
             var Mass = I_Mass.value - Math.abs(I_BucketMass.value);
             Mass.toFixed(2);
             if(Mass > 0) {
-                ValidateData("AddMass", [["Mass", Mass], ["Colour", I_Colour]]);
+                ValidateData("AddMass", [["Mass", Mass], ["Colour", I_Colour], ["FromBin", I_FromBin.value]]);
                 I_Mass.value = null;
                 RemoveClasses();
                 I_Colour = "";
@@ -64,6 +67,18 @@ function LoadEvent() {
         }
     });
 
+    function DisplayAvaliableBinColours(ColourArray) {
+        var Counter = 0;
+        console.table(ColourArray);
+        while(Counter < ColourArray.length) {
+            console.log(ColourArray[Counter]["colour"]);
+            var Option = document.createElement("option");
+            Option.value = ColourArray[Counter]["colour"];
+            Option.textContent = ColourArray[Counter]["colour"];
+            I_FromBin.appendChild(Option); 
+            Counter++;
+        }
+    }
 
 
 

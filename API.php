@@ -23,7 +23,7 @@
         function ValidateLevel($Level, $Mode) {
             if((filter_var($Level, FILTER_VALIDATE_INT) || $Level == 0) && $Level <= 3 && $Level >= 0) {
                 $F_Level = filter_var($Level, FILTER_SANITIZE_NUMBER_INT);
-                $AccessArray = array(0=>array("CreateBin", "CreateUser", "SetPriority", "GetUsers"), 1=>array("CheckJob", "UpdateBinStatus"), 2=>array("AddMass"), 3=>array("CheckJob", "UpdateContamination"));
+                $AccessArray = array(0=>array("CreateBin", "CreateUser", "SetPriority", "GetUsers"), 1=>array("CheckJob", "UpdateBinStatus"), 2=>array("AddMass", "GetBinColours"), 3=>array("CheckJob", "UpdateContamination"));
                 if(in_array($Mode, $AccessArray[$F_Level])) {
                     echo "redirect:../index.html";
                     exit();
@@ -33,14 +33,8 @@
             echo "failed";
             //http_response_code(-1);
             exit();
-            
-
-
         }
-
-
         if(isset($_GET["Mode"])) {
-
             //Prevent errors from occuring
             try {
                 require_once("loader.php");
@@ -145,17 +139,23 @@
 
                 case "AddMass":
                     $Controller = new Controller();
-                    $Controller->C_AddMass($_POST["Mass"], $_POST["Colour"]);
+                    $Controller->C_AddMass($_POST["Mass"], $_POST["Colour"], $_POST["FromBin"]);
                 break;
 
                 case "GetUsers":
                     $View = new View();
                     echo $View->V_GetUsers();
-                break; 
+                break;
 
-                
-
-
+                case "GetBinColours":
+                    $View = new View();
+                    echo $View->V_GetColours();
+                break;
+                //New functions 
+                case "CreateAudit":
+                    $Controller = new Controller();
+                    $Controller->C_CreateAudit($_POST["AuditName"], $_SESSION["Id"], $_POST["Date"], $_POST["MapLocation"]);
+                break;
 
             }
 
