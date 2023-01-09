@@ -125,9 +125,7 @@ function QueryServer(Mode, Data, CallBackFunction = null, FailureFunction = null
         if(this.responseText.includes("redirect:"))  {
             var Location = this.responseText.split(":");
             //! add check for mode so no API call
-            while(true) {
-                window.location = Location[1];
-            }
+            window.location = Location[1];
         }
         else {
             //If visual output is required call function on relevant script
