@@ -480,8 +480,9 @@ window.onload = function() {
                     anchor: "end",
                     align: "right",
                     display: "auto",
-                    backgroundColor: "#f7f7f7",
+                    backgroundColor: "#f7f7f74d",
                     borderRadius: "5",
+                    color: "#000000",
                     
                 },
             }
