@@ -332,7 +332,7 @@ body {
   --Green: #CAFFBF;
   --Blue: #4EDAFF;
   --Yellow: #FDFFB6;
-  --Purple: #9d4edd;
+  --Purple: #f7f7f74d;
   font-size: 16px;
 }
 
@@ -733,6 +733,9 @@ body {
 }
 
 @media screen and (max-width: 600px) {
+  body {
+    overflow-x: hidden;
+  }
   canvas {
     height: 20%;
   }
@@ -743,18 +746,20 @@ body {
     -ms-grid-rows: auto auto;
         grid-template-rows: auto auto;
     row-gap: 20vh;
+    height: 100%;
   }
   #ParallaxBackground * {
     -ms-grid-column: 1;
     grid-column: 1;
   }
   #ParallaxBackground #GraphHolder {
+    height: 100%;
     -ms-grid-row: 1;
     grid-row: 1;
     display: -ms-grid;
     display: grid;
-    -ms-grid-rows: 30% 30% 30%;
-        grid-template-rows: 30% 30% 30%;
+    -ms-grid-rows: auto auto auto;
+        grid-template-rows: auto auto auto;
     -ms-grid-columns: 100%;
         grid-template-columns: 100%;
     row-gap: 10vh;
@@ -858,6 +863,35 @@ body {
     grid-row: 3;
     -ms-grid-column: 1;
     grid-column: 1;
+  }
+  .StatFocus {
+    height: 100%;
+  }
+  .StatFocus .Title {
+    padding-left: 0px;
+  }
+  .StatFocus .DataDivide3 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+  .StatFocus .DataDivide3 section {
+    width: 100%;
+    height: 100%;
+  }
+  .StatFocus .DataDivide3 section canvas {
+    display: block;
   }
 }
 
